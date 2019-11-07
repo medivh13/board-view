@@ -1,19 +1,25 @@
+require('dotenv').config();
+const ENV = process.env;
+
+const getEnv = (key) => {
+  return ENV[`REACT_APP_${key}`];
+};
+
 const env = {
-  fqdn: "http://localhost",
-  port: 3001,
-  refreshTimeMilliSeconds: 3000,
+  fqdn: getEnv('SERVER_FQDN'),
+  port: getEnv('SERVER_PORT'),
+  refreshTimeMilliSeconds: getEnv('REFRESH_TIME_MS'),
   app: {
-      host: 'http://localhost:3000',
-      title: 'Fi-Board',
-      version: 'v0.0.1',
-      year: 2019,
+      host: getEnv('HOST'),
+      title: getEnv('TITLE'),
+      version: getEnv('VERSION'),
+      year: getEnv('YEAR'),
       marquee: {
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit ullamcorper ipsum nec iaculis. Fusce leo dolor, tristique in mollis posuere, sodales non arcu. Integer tristique eu neque nec consequat. Suspendisse venenatis id enim feugiat commodo. Nunc tristique ante vitae dolor ultrices sodales. Aliquam fermentum diam a porta ultricies. Nullam hendrerit suscipit nisi, nec ullamcorper nisl dignissim vel. Vestibulum ac nibh egestas, cursus leo nec, convallis eros. Etiam eleifend in elit eget rutrum.',
-          loopTime: '45s'
+          text: getEnv('MARQUEE_TEXT'),
+          loopTime: getEnv('MARQUEE_LOOP_TIME')
       }
   }
 };
 
 env.src = env.fqdn + ":" + env.port;
-
 module.exports = env;
