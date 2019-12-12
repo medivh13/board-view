@@ -1,7 +1,7 @@
 import React from 'react';
 import { ProfileCard } from 'adminlte-reactjs';
 import { Box } from 'adminlte-2-react';
-import userHelper from '../../../../helpers/UserHelper';
+import { parseUser } from '../../../../helpers/UserHelper';
 
 class AgentStates extends React.Component {
 
@@ -77,7 +77,7 @@ class AgentStates extends React.Component {
             const userList = this.props.agentStatesData.Users.User;
             users = userList.map((user) => {
                 // set user data
-                return userHelper.parseUser(user);
+                return parseUser(user);
             });
         }
         else {
@@ -92,17 +92,16 @@ class AgentStates extends React.Component {
         };
 
         let agentStates = users.map(item => {
-            return (
-                <ProfileCard
-                    key={item.username}
-                    width={4}
-                    theme={statusColor[item.status]}
-                    displayName={item.name}
-                    description={item.statusName}
-                    displayPicture={item.image}
-                    pictureAlignment='left'
-                />
-            );
+            const profileCardProps = {
+              key: item.username,
+              width: 4,
+              theme: statusColor[item.status],
+              displayName: item.name,
+              description: item.statusName,
+              displayPicture: item.image,
+              pictureAlignment: 'left'
+            };
+            return ( <ProfileCard {...profileCardProps}/> );
         });
 
         return (

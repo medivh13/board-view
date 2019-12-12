@@ -5,9 +5,12 @@ import { Box, Inputs, Button, Row, Col, Alert, LoadingSpinner } from "adminlte-2
 import { Redirect } from 'react-router';
 import credentialStore from '../../services/StateReducers/Credentials/CredentialStore';
 import {login} from "../../services/StateReducers/Credentials/CredentialActions";
-import { app } from "../../AppEnvironment";
+import AppEnvironment from "../../AppEnvironment";
+import httpService from '../../services/HttpService';
 
 const { Text } = Inputs;
+
+const { app } = AppEnvironment;
 
 class SignIn extends React.Component {
     constructor(){
@@ -35,7 +38,6 @@ class SignIn extends React.Component {
     }
 
     checkCredentials(){
-        const httpService = require('../../services/HttpService');
         const url = "/fiboard/login";
         const { username, password } = this.state;
         const body = { username, password };
@@ -43,7 +45,6 @@ class SignIn extends React.Component {
 
         return new Promise((resolve, reject) => {
             httpService.post(url, body, config).then((response) => {
-                console.log(response);
                 resolve(response);
             }).catch((err) => {
                 reject(err);

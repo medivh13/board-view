@@ -1,4 +1,5 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 const ENV = process.env;
 
 const getEnv = (key) => {
@@ -22,4 +23,7 @@ const env = {
 };
 
 env.src = env.fqdn + ":" + env.port;
-module.exports = env;
+
+const AppEnvironment = () => env;
+
+export default AppEnvironment();

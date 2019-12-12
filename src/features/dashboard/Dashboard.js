@@ -6,12 +6,13 @@ import { Redirect } from 'react-router';
 import {logout} from "../../services/StateReducers/Credentials/CredentialActions";
 import Footer from "../../components/Footer";
 
-import { app, refreshTimeMilliSeconds } from "../../AppEnvironment";
-import httpService from "../../services/HttpService";
+import AppEnvironment from "../../AppEnvironment";
+import httpService from '../../services/HttpService';
 import credentialStore from '../../services/StateReducers/Credentials/CredentialStore';
 
 const { Item, Header } = Sidebar;
 const { Entry } = Navbar;
+const { app, refreshTimeMilliSeconds } = AppEnvironment;
 
 class Dashboard extends React.Component {
 

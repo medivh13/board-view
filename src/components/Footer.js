@@ -1,5 +1,7 @@
 import React from 'react';
-import { app } from '../AppEnvironment';
+import AppEnvironment from '../AppEnvironment';
+
+const { app } = AppEnvironment;
 
 class Footer extends React.Component {
     render(){
@@ -24,11 +26,11 @@ class Footer extends React.Component {
         };
 
         return (
-            <footer class="main-footer" style={style}>
-                <p class="marquee">
+            <footer className="main-footer" style={style}>
+                <p className="marquee">
                     <span style={animation}>{marquee.text}</span>
                 </p>
-                <div class="pull-right hidden-xs">
+                <div className="pull-right hidden-xs">
                     {footerText}
                 </div>&nbsp;
             </footer>

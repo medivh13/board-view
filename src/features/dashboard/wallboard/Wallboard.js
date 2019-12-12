@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import AgentStates from "./agent-states/AgentStates";
 import Fullscreen from "react-full-screen";
 
-import env from "../../../AppEnvironment";
+import env from '../../../AppEnvironment';
 
 import { Row, Col } from 'adminlte-2-react';
 import Footer from "../../../components/Footer";

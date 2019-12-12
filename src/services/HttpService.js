@@ -1,5 +1,5 @@
-const axios = require('axios');
-const env = require('../AppEnvironment');
+import axios from 'axios';
+import env from '../AppEnvironment';
 
 const post = async (url, body, config) => {
     url = env.src + url;
@@ -31,7 +31,8 @@ const get = async (url, auth, loadAs) => {
     }
 };
 
-module.exports = {
-    get,
-    post
-};
+const service = { get, post };
+
+const httpService = () => service;
+
+export default httpService();

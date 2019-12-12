@@ -106,6 +106,7 @@ class CallActivity extends React.Component {
             item.number = item.number + (item.postfix || '');
 
             const sizes = {
+              key: item.key,
               md: 4,
               sm: 8,
               xs: 12

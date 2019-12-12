@@ -1,6 +1,8 @@
-const { app } = require('../AppEnvironment');
+import AppEnvironment from '../AppEnvironment';
 
-exports.parseUser = (user) => {
+const { app } = AppEnvironment;
+
+export const parseUser = (user) => {
     return {
         key: user.loginId,
         name: user.firstName + " " + user.lastName,
